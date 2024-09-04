@@ -10,7 +10,6 @@ import threading
 import zipfile
 os.system('cls')
 version = 1
-
 def logo():
     print(colorama.Fore.LIGHTYELLOW_EX + r'''
       |\/\/\/\/\/|
