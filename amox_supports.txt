@@ -1,7 +1,7 @@
 Packages you can download with amox||Các gói bạn có thể tải bằng amox
 Copy commands below to download package||Sao chép các lệnh dưới đây để tải gói
 number:command
-description:
+description
 --------------------------------------------------------------------------------
 1:amox install unikey 
 Vietnamese keyboard||Bàn phím tiếng Việt
