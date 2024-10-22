@@ -1,0 +1,19 @@
+Packages you can download with amox||Các gói bạn có thể tài bằng amox
+Copy commands below to download package||Sao chép các lệnh dưới đây để tải gói
+number:command
+description:
+--------------------------------------------------------------------------------
+1:amox install unikey 
+Vietnamese keyboard||Bàn phím tiếng Việt
+2:amox install cmdchatsv
+Create server for cmdchatcl connect
+3:amox install cmdchatcl
+Connect ,chat,download,upload in local network
+4:amox install medusa
+Encrypt and decrypt your file
+5:amox install haskaudio
+Make your text to speech via Microsoft api, support read file and read folder
+6:amox install systemspeak
+Text to speech using local voices windows
+7:amox install tiktak
+Tiktok downloader without watermark
