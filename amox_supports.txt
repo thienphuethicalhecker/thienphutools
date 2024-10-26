@@ -17,3 +17,5 @@ Make your text to speech via Microsoft api, support read file and read folder
 Text to speech using local voices windows
 7:amox install tiktak
 Tiktok downloader without watermark
+8:amox install ngrok
+Create tunnel between localhost and internet
