@@ -19,3 +19,5 @@ Text to speech using local voices windows
 Tiktok downloader without watermark
 8:amox install ngrok
 Create tunnel between localhost and internet
+9:amox install blackears
+Sound trolling
