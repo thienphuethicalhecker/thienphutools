@@ -1,6 +1,6 @@
 @import url('http://fonts.cdnfonts.com/css/avenir-lt-std');
        
-html{
+body,html{
     font-family: 'Avenir LT Std', sans-serif !important;   
     background-image: url('img.png'); 
     background-size: cover; 
