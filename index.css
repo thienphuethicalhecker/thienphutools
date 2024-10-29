@@ -2,7 +2,7 @@
        
 body,html{
     font-family: 'Avenir LT Std', sans-serif !important;   
-    background-image: url('img.png'); 
+    background-image: url('bg.png'); 
     background-size: cover; 
     background-position: center; 
     width: 100%;
@@ -18,7 +18,7 @@ p{
 .linkBtn{
     padding: 20px; background-color: #3D3B3C; color: white;
     text-decoration: none;
-    width: 100%;
+    width: 40%;
     text-align: center;
     margin: 4px 0px;
     max-width: 700px;
