@@ -21,3 +21,5 @@ Tiktok downloader without watermark
 Create tunnel between localhost and internet
 9:amox install blackears
 Sound trolling
+10:amox install animu
+Generate random anime images
