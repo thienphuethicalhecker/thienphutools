@@ -23,3 +23,5 @@ Create tunnel between localhost and internet
 Sound trolling
 10:amox install animu
 Generate random anime images
+11:amox install lumos
+Powerful IP and Website Scanning and crawling
