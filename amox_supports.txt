@@ -25,3 +25,5 @@ Sound trolling
 Generate random anime images
 11:amox install lumos
 Powerful IP and Website Scanning and crawling
+12:amox install pyhask
+Obfuscate, protect your python code
