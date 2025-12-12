@@ -2,7 +2,7 @@
        
 body,html{
     font-family: 'Avenir LT Std', sans-serif !important;   
-    background-image: url('https://pic.re/image'); 
+    background-image: url('bg.png'); 
     background-size: cover; 
     background-position: center; 
     width: 100%;
@@ -30,3 +30,4 @@ p{
     color: #3D3B3C;
     padding: 19px;
 }
+
